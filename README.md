@@ -12,3 +12,8 @@ Deploy these functions to your account using
 ```
 twilio serverless:deploy
 ```
+
+To see the serverless logs use:
+```
+twilio serverless:logs --tail --service-sid=ZSxxx
+```
