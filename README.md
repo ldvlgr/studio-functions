@@ -8,12 +8,17 @@ This function assumes a default Open time (6:00) and Closed time (17:00), unless
 
 https://studio-functions-xxxx-dev.twil.io/checkHours?openTime=0600&closeTime=1700
 
-Deploy these functions to your account using
+It is recommended to [set the Visibility of functions](https://www.twilio.com/docs/serverless/functions-assets/visibility) used by Studio as "protected" by prepending the extension with `protected`, for example: 
+```
+lookup.protected.js
+```
+
+[Deploy these functions](https://www.twilio.com/docs/labs/serverless-toolkit/general-usage#deploy-a-project) to your account using
 ```
 twilio serverless:deploy
 ```
 
-To see the serverless logs use:
+To debug the [serverless logs](https://www.twilio.com/docs/serverless/api/resource/logs#serverless-toolkit-usage) use:
 ```
 twilio serverless:logs --tail --service-sid=ZSxxx
 ```
