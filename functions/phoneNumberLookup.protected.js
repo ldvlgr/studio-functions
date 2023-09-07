@@ -1,6 +1,5 @@
 exports.handler = (context, event, callback) => {
   const phNumber = event.twilioPhoneNumber;
-  console.log('EVENT:', event);
   const phNumbers = {
     "+18587588840": {
       "campaign": "Campaign1",
