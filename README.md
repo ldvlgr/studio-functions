@@ -17,6 +17,23 @@ https://www.twilio.com/docs/serverless/functions-assets/quickstart/time-of-day-r
 ### Phone Number Lookup
 This function does a basic lookup in a static Json object to retrieve attributes associated with the inbound Twilio Phone number. These attributes can be added to the Task in the SendToFlex widget in Studio.
 
+### Get Time Function ###
+
+If you just need to capture the `ivr_time` measure for inbound calls, you can use this function to capture the Start Time at the top of the Studio flow (GetStartTime function call widget) and the End Time (GetEndTime function call widget) just before the SendToFlex widget.
+
+On the final invocation (GetEndTime), make sure to set function parameter (input):
+
+`startSeconds = {{widgets.GetStartTime.parsed.seconds}}`
+
+to make sure it calculates the duration.
+
+And in the SendToFlex widget attributes section add:
+```
+  "conversations": {
+    "ivr_time": "{{widgets.GetEndTime.parsed.ivr_time}}"
+  }
+```
+
 ### Create & Update IVR Tasks
 
 These are updated versions of the functions from this [blog post](https://www.twilio.com/blog/ivr-with-flex-insights) to be able to track IVR tasks.
